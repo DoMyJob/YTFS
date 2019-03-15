@@ -84,6 +84,10 @@ func TestYTFSBasic(t *testing.T) {
 }
 
 func TestYTFSRangeOverflow(t *testing.T) {
+	if opt.UseLevelDB {
+		return
+	}
+
 	rootDir, err := ioutil.TempDir("/tmp", "ytfsTest")
 	config := opt.DefaultOptions()
 
